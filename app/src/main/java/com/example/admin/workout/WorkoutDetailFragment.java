@@ -20,10 +20,17 @@ public class WorkoutDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putLong("workoutId", workoutId);
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if(savedInstanceState != null) {
+            workoutId = savedInstanceState.getLong("workoutId");
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
